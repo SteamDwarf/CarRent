@@ -1,0 +1,240 @@
+@font-face {
+    font-family: Roboto;
+    src: url('../assets/fonts/Roboto.ttf');
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url('../assets/fonts/Robotobold.ttf');
+    font-weight: bold;
+}
+
+/* ==============ОБЩИЕ СТИЛИ=================*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Roboto, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.button {
+    border: none;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #030305;
+    transition: background-color 0.5s;
+}
+
+.button:hover {
+    background-color: #575757;
+    cursor: pointer;
+}
+
+.section__title {
+    font-size: 60px;
+    font-weight: 700;
+}
+
+.input {
+   padding: 22px 18px; 
+   font-size: 16px;
+   border: 1px solid #5D5D5F;
+   outline: none;
+}
+/* ==============ОБЩИЕ СТИЛИ=================*/
+/*===========================================*/
+
+
+
+/*================HEADER================*/
+.header {
+    padding: 25px 0;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.header__container {
+    display: flex;
+    align-items: center;
+}
+
+.header__logo {
+    vertical-align: bottom;
+}
+
+
+.header__nav {
+    margin-left: 244px;
+}
+
+.header__nav-list {
+    display: flex;
+    list-style: none;
+}
+
+.header__nav-item {
+    margin-left: 115px;
+}
+
+.header__nav-link {
+    font-size: 15px;
+    color: #030305;
+    text-decoration: none;
+}
+/*================HEADER================*/
+/*===========================================*/
+
+
+
+/*================СЕКЦИЯ "Info"================*/
+.info {
+    margin-bottom: 100px;
+    padding-top: 105px;
+    background-image: url('../assets/images/background/background.png');
+}
+
+.info__title {
+    margin-bottom: 40px;
+    font-size: 80px;
+    line-height: 88px;
+    font-weight: 700;
+}
+
+.info__description {
+    width: 502px;
+    margin-bottom: 40px;
+    font-size: 16px;
+    line-height: 20.8px;
+}
+
+.info__button {
+    margin-bottom: 154px;
+    padding: 20px 53px;
+}
+/*================СЕКЦИЯ "Info"================*/
+/*===========================================*/
+
+
+/*================СЕКЦИЯ "Car Park"================*/
+.car-park {
+    margin-bottom: 100px;
+}
+.car-park__title {
+    margin-bottom: 40px;
+}
+
+.car-park__cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 24px;
+}
+
+.car-card {
+    max-width: 384px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.car-card__img {
+    margin-bottom: 15px;
+}
+
+.car-card__title {
+    margin-bottom: 17px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.car-card__characteristics-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 15px;
+    width: 100%;
+    margin-bottom: 13px;
+    list-style: none;
+    text-align: center;
+}
+
+.car-card__characteristic-item {
+    width: 110px;
+    height: 92px;
+}
+
+.car-card__book-button {
+    width: 100%;
+    padding: 15px 0;
+}
+/*================СЕКЦИЯ "Car Park"================*/
+/*=================================================*/
+
+
+/*================СЕКЦИЯ "Contact"================*/
+
+.contact {
+    overflow: hidden;
+}
+
+.contact__container {
+    position: relative;
+    padding-bottom: 121px;
+}
+
+.contact__description {
+    margin-bottom: 60px;
+}
+
+.contact__title {
+    margin-bottom: 20px;
+}
+
+.contact__form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    width: 344px;
+}
+
+.contact__form-button {
+    padding: 20px 0;
+}
+
+.contact__img {
+    position: absolute;
+    bottom: 0;
+    left: 401px;
+}
+/*================СЕКЦИЯ "Contact"================*/
+/*================================================*/
+
+
+/*================ FOOTER ================*/
+.footer__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-top: 1px solid #E5E5E5;
+}
+
+.footer__logo {
+    vertical-align: bottom;
+}
+
+.footer__copyright {
+    font-size: 15px;
+    vertical-align: middle;
+}
+/*================ FOOTER ================*/
+/*================================================*/
