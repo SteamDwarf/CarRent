@@ -1,62 +1,3 @@
-@font-face {
-    font-family: Roboto;
-    src: url('../assets/fonts/Roboto.ttf');
-}
-
-@font-face {
-    font-family: Roboto;
-    src: url('../assets/fonts/Robotobold.ttf');
-    font-weight: bold;
-}
-
-/* ==============ОБЩИЕ СТИЛИ=================*/
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Roboto, sans-serif;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.button {
-    border: none;
-    font-size: 16px;
-    font-weight: 700;
-    color: #fff;
-    background-color: #030305;
-    transition: background-color 0.5s;
-}
-
-.button:hover {
-    background-color: #575757;
-    cursor: pointer;
-}
-
-.section__title {
-    font-size: 60px;
-    font-weight: 700;
-}
-
-.input {
-   padding: 22px 18px; 
-   font-size: 16px;
-   border: 1px solid #5D5D5F;
-   outline: none;
-}
-/* ==============ОБЩИЕ СТИЛИ=================*/
-/*===========================================*/
-
-
-
-/*================HEADER================*/
 .header {
     padding: 25px 0;
     border-bottom: 1px solid #E5E5E5;
@@ -89,6 +30,10 @@ body {
     font-size: 15px;
     color: #030305;
     text-decoration: none;
+}
+
+.header__nav-link:hover {
+    border-bottom: 2px solid #030305;
 }
 /*================HEADER================*/
 /*===========================================*/
@@ -148,6 +93,11 @@ body {
 
 .car-card__img {
     margin-bottom: 15px;
+    transition: transform 0.3s;
+}
+
+.car-card:hover .car-card__img {
+    transform: scale(1.1);
 }
 
 .car-card__title {
@@ -208,6 +158,14 @@ body {
 
 .contact__form-button {
     padding: 20px 0;
+}
+
+.contact__form-input.ng-touched.ng-valid {
+    border: 1px solid #5D5D5F;
+}
+
+.contact__form-input.ng-touched.ng-invalid {
+    border: 1px solid red;
 }
 
 .contact__img {
