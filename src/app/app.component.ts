@@ -1,5 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, HostListener } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { AppService } from './app.service';
+import { CarData, ServerResponse } from './app.types';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +12,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class AppComponent {
   title = 'CarRent';
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private appService: AppService) {
 
   };
 
@@ -19,71 +22,17 @@ export class AppComponent {
     car: ['', Validators.required]
   });
 
-  carsData = [
-    {
-      img: '1.png',
-      title: 'Lamborghini Huracan Spyder',
-      transmission: 'атомат',
-      engine: 5.2,
-      year: 2019
-    },
-    {
-      img: '2.png',
-      title: 'Chevrolet Corvette',
-      transmission: 'атомат',
-      engine: 6.2,
-      year: 2017
-    },
-    {
-      img: '3.png',
-      title: 'Ferrari California',
-      transmission: 'атомат',
-      engine: 3.9,
-      year: 2010
-    },
-    {
-      img: '4.png',
-      title: 'Lamborghini Urus',
-      transmission: 'атомат',
-      engine: 4.0,
-      year: 2019
-    },
-    {
-      img: '5.png',
-      title: 'Audi R8',
-      transmission: 'атомат',
-      engine: 5.2,
-      year: 2018
-    },
-    {
-      img: '6.png',
-      title: 'Chevrolet Camaro',
-      transmission: 'атомат',
-      engine: 2.0,
-      year: 2019
-    },
-    {
-      img: '7.png',
-      title: 'Maserati Quattroporte',
-      transmission: 'атомат',
-      engine: 3.0,
-      year: 2018
-    },
-    {
-      img: '8.png',
-      title: 'Dodge Challenger',
-      transmission: 'атомат',
-      engine: 6.4,
-      year: 2019
-    },
-    {
-      img: '9.png',
-      title: 'Nissan GT-R',
-      transmission: 'атомат',
-      engine: 3.8,
-      year: 2019
-    },
-  ];
+  carsData: CarData[] = [];
+  category = 'sport';
+
+  ngOnInit() {
+    this.appService.getQuery(this.category).subscribe((carsData) => this.carsData = carsData as CarData[]);
+  }
+
+  toggleCategory(category: string) {
+    this.category = category;
+    this.ngOnInit();
+  }
   
   scrollTo(targetObject: HTMLElement, car?: string) {
     targetObject.scrollIntoView({behavior: 'smooth'});
@@ -93,8 +42,16 @@ export class AppComponent {
 
   validateFormInputs() {
     if(this.contactForm.valid) {
-      alert('Спасибо за заявку. Мы свяжемся с вами в ближайшее время!');
-      this.contactForm.reset();
+      this.appService.sendQuery(this.contactForm.value)
+      .subscribe({
+        next: (response: Object) => {
+          alert((response as ServerResponse).message);
+          this.contactForm.reset();
+        },
+        error: (response: HttpErrorResponse) => {
+          alert(response.error.message);
+        }
+      })
     }
   };
 

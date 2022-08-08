@@ -1,7 +1,7 @@
 <header class="header">
   <div class="header__container container">
       <div class="header__logo-container">
-          <img src="../assets/images/logo/logo.png" alt="logo" class="header__logo">
+          <img src="assets/images/logo/logo.png" alt="logo" class="header__logo">
       </div>
       <nav class="header__nav">
           <ul class="header__nav-list">
@@ -32,28 +32,32 @@
   <section class="car-park" id="car-park" #carPark>
       <div class="car-park__container container">
           <h2 class="car-park__title section__title">Наш автопарк</h2>
+          <div class="car-park__toggle-container">
+            <div [ngClass]="{active: category === 'sport'}" class="car-park__toggle" (click)="toggleCategory('sport')">Sport</div>
+            <div [ngClass]="{active: category === 'luxury'}" class="car-park__toggle" (click)="toggleCategory('luxury')">Luxury</div>
+          </div>
           <div class="car-park__cards-container">
               <div class="car-park__card car-card" *ngFor="let car of carsData">
-                  <img src="../assets/images/cars/{{car.img}}" alt="{{car.title}}" class="car-card__img">
-                  <h3 class="car-card__title">{{car.title}}</h3>
+                  <img src="{{car.image}}" alt="{{car.name}}" class="car-card__img">
+                  <h3 class="car-card__title">{{car.name}}</h3>
                   <ul class="car-card__characteristics-list">
                       <li class="car-card__characteristic-item">
-                          <img src="../assets/images/icons/transmission.png" alt="transmission" class="car-card__characteristic-icon">
-                          <h4 class="car-card__characteristic-title">Коробка</h4>
-                          <p class="car-card__characteristic-value">{{car.transmission}}</p>
+                          <img src="assets/images/icons/drive.png" alt="drive" class="car-card__characteristic-icon">
+                          <h4 class="car-card__characteristic-title">Привод</h4>
+                          <p class="car-card__characteristic-value">{{car.gear}}</p>
                       </li>
                       <li class="car-card__characteristic-item">
-                          <img src="../assets/images/icons/engine.png" alt="engine" class="car-card__characteristic-icon">
+                          <img src="assets/images/icons/engine.png" alt="engine" class="car-card__characteristic-icon">
                           <h4 class="car-card__characteristic-title">Двигатель</h4>
                           <p class="car-card__characteristic-value">{{car.engine}} л.с</p>
                       </li>
                       <li class="car-card__characteristic-item">
-                          <img src="../assets/images/icons/year.png" alt="year" class="car-card__characteristic-icon">
-                          <h4 class="car-card__characteristic-title">Год выпуска</h4>
-                          <p class="car-card__characteristic-value">{{car.year}}</p>
+                          <img src="assets/images/icons/seats.png" alt="seats" class="car-card__characteristic-icon">
+                          <h4 class="car-card__characteristic-title">Кол-во мест</h4>
+                          <p class="car-card__characteristic-value">{{car.places}}</p>
                       </li>
                   </ul>
-                  <button class="car-card__book-button button" (click)="scrollTo(contact, car.title)">ЗАБРОНИРОВАТЬ</button>
+                  <button class="car-card__book-button button" (click)="scrollTo(contact, car.name)">ЗАБРОНИРОВАТЬ</button>
               </div>
           </div>
       </div>
@@ -71,14 +75,14 @@
               <input type="text" placeholder="Автомобиль, который вас интересует" class="contact__form-input input" id="car-input" formControlName="car">
               <button class="contact__form-button button" id="form-button" [disabled]="!contactForm.valid" (click)="validateFormInputs()">УЗНАТЬ ЦЕНУ</button>
           </form>
-          <img src="../assets/images/cars/rolls.png" alt="Rolls" class="contact__img" id="contact-img" [ngStyle]="trans">
+          <img src="assets/images/cars/rolls.png" alt="Rolls" class="contact__img" id="contact-img" [ngStyle]="trans">
       </div>
   </section>
 
   <footer class="footer">
       <div class="footer__container container">
           <div class="footer__logo-container">
-              <img src="../assets/images/logo/logo.png" alt="logo" class="footer__logo">
+              <img src="assets/images/logo/logo.png" alt="logo" class="footer__logo">
           </div>
           <div class="footer__copyright">Все права защищены</div>
       </div>
