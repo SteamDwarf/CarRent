@@ -18,9 +18,14 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Roboto, sans-serif;
 }
+
 
 .container {
     max-width: 1200px;

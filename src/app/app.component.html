@@ -6,19 +6,19 @@
       <nav class="header__nav">
           <ul class="header__nav-list">
               <li class="header__nav-item">
-                  <a href="#" class="header__nav-link">Главная</a>
+                  <a href="#main" class="header__nav-link">Главная</a>
               </li>
               <li class="header__nav-item">
-                  <a href="#" class="header__nav-link">Автомобили</a>
+                  <a href="#car-park" class="header__nav-link">Автомобили</a>
               </li>
               <li class="header__nav-item">
-                  <a href="#" class="header__nav-link">Бронирование авто</a>
+                  <a href="#contact" class="header__nav-link">Бронирование авто</a>
               </li>
           </ul>
       </nav>
   </div>
 </header>
-<main class="main">
+<main class="main" id="main">
   <section class="info" id="info" [ngStyle]="bgPos">
       <div class="info__container container">
           <h1 class="info__title">Аренда премиальных автомобилей</h1>
@@ -57,7 +57,7 @@
                           <p class="car-card__characteristic-value">{{car.places}}</p>
                       </li>
                   </ul>
-                  <button class="car-card__book-button button" (click)="scrollTo(contact, car.name)">ЗАБРОНИРОВАТЬ</button>
+                  <button class="car-card__book-button button" (click)="scrollTo(contact, car.name, car.image)">ЗАБРОНИРОВАТЬ</button>
               </div>
           </div>
       </div>
@@ -75,7 +75,7 @@
               <input type="text" placeholder="Автомобиль, который вас интересует" class="contact__form-input input" id="car-input" formControlName="car">
               <button class="contact__form-button button" id="form-button" [disabled]="!contactForm.valid" (click)="validateFormInputs()">УЗНАТЬ ЦЕНУ</button>
           </form>
-          <img src="assets/images/cars/rolls.png" alt="Rolls" class="contact__img" id="contact-img" [ngStyle]="trans">
+          <img [src]="choosedCar" alt="Rolls" class="contact__img" id="contact-img" [ngStyle]="trans">
       </div>
   </section>
 

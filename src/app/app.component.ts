@@ -24,6 +24,7 @@ export class AppComponent {
 
   carsData: CarData[] = [];
   category = 'sport';
+  choosedCar = 'assets/images/cars/rolls.png';
 
   ngOnInit() {
     this.appService.getQuery(this.category).subscribe((carsData) => this.carsData = carsData as CarData[]);
@@ -34,9 +35,10 @@ export class AppComponent {
     this.ngOnInit();
   }
   
-  scrollTo(targetObject: HTMLElement, car?: string) {
+  scrollTo(targetObject: HTMLElement, car?: string, carImage?: string) {
     targetObject.scrollIntoView({behavior: 'smooth'});
-
+    
+    if(carImage) this.choosedCar = carImage;
     if(car) this.contactForm.patchValue({car: car});
   };
 
